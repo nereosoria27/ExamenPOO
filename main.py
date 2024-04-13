@@ -1,45 +1,72 @@
+#no funciona todavia, pero yo confio en que lo va a hacer
+
+from examen import Examen
+from trabajopractico import TrabajoPractico
+from reunionestudio import ReunionEstudio
+from agenda import Agenda
+
 eventos = []
 
-class Evento():
-    def __init__(self, fecha, descripcion, examen=None):
-        self._fecha = fecha
-        self._descripcion = descripcion
-        self._examen = examen
-
+class Evento:
+    def __init__(self, fecha, descripcion):
+        self.fecha = fecha
+        self.descripcion = descripcion
+    
     def __str__(self):
-        examen_str = f"Examen: {self._examen}" if self._examen else ""
-        return f"Fecha: {self._fecha}\nDescripción: {self._descripcion}\n{examen_str}"
+        return f"{self.fecha}: {self.descripcion}"
 
+def mostrar_menu():
+    print("1. Agregar evento")
+    print("2. Mostrar eventos")
+    print("3. Eliminar evento")
+    print("4. Salir")
 
+def agregar_evento(agenda):
+    tipo_evento = input("Ingrese el tipo de evento (examen, trabajo_practico, reunion_estudio): ")
+    fecha = input("Ingrese la fecha del evento (YYYY-MM-DD): ")
+    descripcion = input("Ingrese la descripción del evento: ")
 
-def agregar_evento():
-    fecha = input("Ingrese la fecha del evento: ")
-    descripcion = input("Ingrese la descripcion del evento: ")
-    tipo = input("Que evento desea crear (EXAMEN) ")
-    if tipo == "EXAMEN":
-        nombre = input("Ingrese el nombre del examen: ")
-        eventos.append(Evento(fecha, descripcion, Examen(nombre, fecha)))
+    if tipo_evento == "examen":
+        materia = input("Ingrese la materia del examen: ")
+        evento = Examen(fecha, descripcion, materia)
+    elif tipo_evento == "trabajo_practico":
+        materia = input("Ingrese la materia del trabajo práctico: ")
+        entrega = input("Ingrese la fecha de entrega del trabajo práctico (YYYY-MM-DD HH:MM): ")
+        evento = TrabajoPractico(fecha, descripcion, materia, entrega)
+    elif tipo_evento == "reunion_estudio":
+        tema = input("Ingrese el tema de la reunión de estudio: ")
+        evento = ReunionEstudio(fecha, descripcion, tema)
     else:
-        eventos.append(Evento(fecha, descripcion))
-    print(eventos)
+        print("Tipo de evento no válido.")
+        return
 
-def eliminar_evento():
-    if len(eventos) > 0:
-        eventos.pop()
-    else:
-        print("No hay eventos para eliminar.")
-print("AGENDA")
+    agenda.agregar_evento(evento)
+    print("Evento agregado")
 
+def eliminar_evento(agenda):
+    descripcion = input("Ingresa la descripción del evento que quiere eliminar: ")
+    agenda.eliminar_evento(descripcion)
+    print("Evento eliminado")
 
-while True:
-    print(eventos)
-    eleccion = input("Ingrese su eleccion, 1 para añadir 2 para eliminar ")
-    if eleccion == "1":
-        agregar_evento()
-        tipo = input("Que evento desea crear (EXAMEN) ")
-        if tipo == "EXAMEN":
-            agregar_evento()
-    elif eleccion == "2":
-        eliminar_evento()
-    else:
-        print("Elección inválida. Por favor, intente de nuevo.")
+def main():
+    agenda = Agenda()
+
+    while True:
+        mostrar_menu()
+        opcion = input("Seleccione una opción: ")
+
+        if opcion == "1":
+            agregar_evento(agenda)
+        elif opcion == "2":
+            print("Eventos en la agenda:")
+            agenda.mostrar_eventos()
+        elif opcion == "3":
+            eliminar_evento(agenda)
+        elif opcion == "4":
+
+            break
+        else:
+            print("Opción no válida. Intente de nuevo.")
+
+if __name__ == "__main__":
+    main()
