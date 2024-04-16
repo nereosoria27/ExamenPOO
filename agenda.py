@@ -9,7 +9,7 @@ class Agenda:
         for evento in self.eventos:
             print(evento)
     
-    def eliminar_evento(self):
+    def eliminar_evento(self, descripcion):
         eventos_eliminados = []
         for evento in self.eventos:
             if evento.descripcion == descripcion:
