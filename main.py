@@ -56,11 +56,12 @@ def main():
             print("Eventos en la agenda:")
             agenda.mostrar_eventos()
         elif opcion == "3":
-            agenda.eliminar_evento()
+            agenda.eliminar_evento(agenda, descripcion)
         elif opcion == "4":
 
             break
         else:
             print("Opción no válida. Intente de nuevo.")
 
+if __name__ == "__main__":
     main()
