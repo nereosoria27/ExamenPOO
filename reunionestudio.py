@@ -1,4 +1,4 @@
-from main import Evento
+from evento import Evento
 
 class ReunionEstudio(Evento):
     def __init__(self, fecha, descripcion, tema):

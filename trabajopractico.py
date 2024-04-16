@@ -1,5 +1,4 @@
-from main import Evento
-
+from evento import Evento
 class TrabajoPractico(Evento):
     def __init__(self, fecha, descripcion, materia, entrega):
         super().__init__(fecha, descripcion)

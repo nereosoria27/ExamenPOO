@@ -9,5 +9,8 @@ class Agenda:
         for evento in self.eventos:
             print(evento)
     
-    def eliminar_evento(self, descripcion):
-        self.eventos = [evento, evento, self.eventos, evento.descripcion, descripcion]
+    def eliminar_evento(self):
+        eventos_eliminados = []
+        for evento in self.eventos:
+            if evento.descripcion == descripcion:
+                eventos_eliminados.append(evento)

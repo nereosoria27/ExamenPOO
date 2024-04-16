@@ -1,19 +1,14 @@
 #no funciona todavia, pero yo confio en que lo va a hacer
 
-from examen import Examen
+from evento import Evento
 from trabajopractico import TrabajoPractico
 from reunionestudio import ReunionEstudio
+from examen import Examen
+
 from agenda import Agenda
 
 eventos = []
 
-class Evento:
-    def __init__(self, fecha, descripcion):
-        self.fecha = fecha
-        self.descripcion = descripcion
-    
-    def __str__(self):
-        return f"{self.fecha}: {self.descripcion}"
 
 def mostrar_menu():
     print("1. Agregar evento")
@@ -43,7 +38,7 @@ def agregar_evento(agenda):
     agenda.agregar_evento(evento)
     print("Evento agregado")
 
-def eliminar_evento(agenda):
+def eliminar_evento(agenda, descripcion):
     descripcion = input("Ingresa la descripción del evento que quiere eliminar: ")
     agenda.eliminar_evento(descripcion)
     print("Evento eliminado")
@@ -61,7 +56,7 @@ def main():
             print("Eventos en la agenda:")
             agenda.mostrar_eventos()
         elif opcion == "3":
-            eliminar_evento(agenda)
+            eliminar_evento(agenda, descripcion)
         elif opcion == "4":
 
             break
