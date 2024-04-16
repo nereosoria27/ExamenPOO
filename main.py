@@ -23,7 +23,7 @@ def mostrar_menu():
 
 def agregar_evento(agenda):
     tipo_evento = input("Ingrese el tipo de evento (examen, trabajo_practico, reunion_estudio): ")
-    fecha = input("Ingrese la fecha del evento (YYYY-MM-DD): ")
+    fecha = input("Ingrese la fecha del evento (dd/mm/aaaa): ")
     descripcion = input("Ingrese la descripción del evento: ")
 
     if tipo_evento == "examen":
@@ -31,7 +31,7 @@ def agregar_evento(agenda):
         evento = Examen(fecha, descripcion, materia)
     elif tipo_evento == "trabajo_practico":
         materia = input("Ingrese la materia del trabajo práctico: ")
-        entrega = input("Ingrese la fecha de entrega del trabajo práctico (YYYY-MM-DD HH:MM): ")
+        entrega = input("Ingrese la fecha de entrega del trabajo práctico (dd/mm/aaaa hh:mm): ")
         evento = TrabajoPractico(fecha, descripcion, materia, entrega)
     elif tipo_evento == "reunion_estudio":
         tema = input("Ingrese el tema de la reunión de estudio: ")
