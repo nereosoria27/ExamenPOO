@@ -1,4 +1,3 @@
-#no funciona todavia, pero yo confio en que lo va a hacer
 
 from evento import Evento
 from trabajopractico import TrabajoPractico
@@ -38,10 +37,7 @@ def agregar_evento(agenda):
     agenda.agregar_evento(evento)
     print("Evento agregado")
 
-def eliminar_evento(agenda, descripcion):
-    descripcion = input("Ingresa la descripción del evento que quiere eliminar: ")
-    agenda.eliminar_evento(descripcion)
-    print("Evento eliminado")
+
 
 def main():
     agenda = Agenda()
@@ -56,7 +52,8 @@ def main():
             print("Eventos en la agenda:")
             agenda.mostrar_eventos()
         elif opcion == "3":
-            agenda.eliminar_evento(agenda, descripcion)
+            agenda.eliminar_evento(agenda)
+            print("Evento eliminado")
         elif opcion == "4":
 
             break

@@ -9,8 +9,9 @@ class Agenda:
         for evento in self.eventos:
             print(evento)
     
-    def eliminar_evento(self, descripcion):
-        eventos_eliminados = []
+    def eliminar_evento(self, descripcionE):
+        
+        descripcionE = input("Ingresa la descripción del evento que quiere eliminar: ")
         for evento in self.eventos:
-            if evento.descripcion == descripcion:
-                eventos_eliminados.append(evento)
+            if evento.descripcion == descripcionE:
+                self.eventos.remove(evento)
