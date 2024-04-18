@@ -16,18 +16,18 @@ def mostrar_menu():
     print("4. Salir")
 
 def agregar_evento(agenda):
-    tipo_evento = input("Ingrese el tipo de evento (examen, trabajo_practico, reunion_estudio): ")
+    tipo_evento = input("Ingrese el tipo de evento (1 para examen, 2 para trabajo practico, 3 para reunion estudio): ")
     fecha = input("Ingrese la fecha del evento (dd/mm/aaaa): ")
     descripcion = input("Ingrese la descripción del evento: ")
 
-    if tipo_evento == "examen":
+    if tipo_evento == "1":
         materia = input("Ingrese la materia del examen: ")
         evento = Examen(fecha, descripcion, materia)
-    elif tipo_evento == "trabajo_practico":
+    elif tipo_evento == "2":
         materia = input("Ingrese la materia del trabajo práctico: ")
         entrega = input("Ingrese la fecha de entrega del trabajo práctico (dd/mm/aaaa hh:mm): ")
         evento = TrabajoPractico(fecha, descripcion, materia, entrega)
-    elif tipo_evento == "reunion_estudio":
+    elif tipo_evento == "3":
         tema = input("Ingrese el tema de la reunión de estudio: ")
         evento = ReunionEstudio(fecha, descripcion, tema)
     else:
